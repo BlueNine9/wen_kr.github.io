@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="题目简述给定一串长度为 $n$ 的序列，每个点上有一个权值 $a_i$ ，现在你需要处理 $q$ 个操作，有以下两种操作： $1  val$ 表示你需要构造一个序列，序列中每一个元素 $seq_i$ 小于等于 $a_i$ 且大于 $0$，问所有合法的序列中 $val$ 出现了几次。 $2  pos val$ 表示把 $pos$ 号节点的点权修改为 $val$，点的编号从 $0$ 开始。 对于每一个">
+<meta name="description" content="题目简述给定一串长度为 $n$ 的序列，每个点上有一个权值 $a_i$ ，现在你需要处理 $q$ 个操作，有以下两种操作： $1$ $val$ 表示你需要构造一个序列，序列中每一个元素 $seq_i$ 小于等于 $a_i$ 且大于 $0$，问所有合法的序列中 $val$ 出现了几次。 $2$ $pos$ $val$ 表示把 $pos$ 号节点的点权修改为 $val$，点的编号从 $0$ 开始。 对">
 <meta name="keywords" content="题解,线段树,费马小定理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How Many Hougong">
 <meta property="og:url" content="http://yoursite.com/2018/04/07/How-many-hougong/index.html">
 <meta property="og:site_name" content="The Art of Coding">
-<meta property="og:description" content="题目简述给定一串长度为 $n$ 的序列，每个点上有一个权值 $a_i$ ，现在你需要处理 $q$ 个操作，有以下两种操作： $1  val$ 表示你需要构造一个序列，序列中每一个元素 $seq_i$ 小于等于 $a_i$ 且大于 $0$，问所有合法的序列中 $val$ 出现了几次。 $2  pos val$ 表示把 $pos$ 号节点的点权修改为 $val$，点的编号从 $0$ 开始。 对于每一个">
+<meta property="og:description" content="题目简述给定一串长度为 $n$ 的序列，每个点上有一个权值 $a_i$ ，现在你需要处理 $q$ 个操作，有以下两种操作： $1$ $val$ 表示你需要构造一个序列，序列中每一个元素 $seq_i$ 小于等于 $a_i$ 且大于 $0$，问所有合法的序列中 $val$ 出现了几次。 $2$ $pos$ $val$ 表示把 $pos$ 号节点的点权修改为 $val$，点的编号从 $0$ 开始。 对">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-07T11:46:14.000Z">
+<meta property="og:updated_time" content="2018-04-07T11:48:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How Many Hougong">
-<meta name="twitter:description" content="题目简述给定一串长度为 $n$ 的序列，每个点上有一个权值 $a_i$ ，现在你需要处理 $q$ 个操作，有以下两种操作： $1  val$ 表示你需要构造一个序列，序列中每一个元素 $seq_i$ 小于等于 $a_i$ 且大于 $0$，问所有合法的序列中 $val$ 出现了几次。 $2  pos val$ 表示把 $pos$ 号节点的点权修改为 $val$，点的编号从 $0$ 开始。 对于每一个">
+<meta name="twitter:description" content="题目简述给定一串长度为 $n$ 的序列，每个点上有一个权值 $a_i$ ，现在你需要处理 $q$ 个操作，有以下两种操作： $1$ $val$ 表示你需要构造一个序列，序列中每一个元素 $seq_i$ 小于等于 $a_i$ 且大于 $0$，问所有合法的序列中 $val$ 出现了几次。 $2$ $pos$ $val$ 表示把 $pos$ 号节点的点权修改为 $val$，点的编号从 $0$ 开始。 对">
 
 
 
@@ -363,11 +363,11 @@
 
       
         <h3 id="题目简述"><a href="#题目简述" class="headerlink" title="题目简述"></a><strong>题目简述</strong></h3><p>给定一串长度为 $n$ 的序列，每个点上有一个权值 $a_i$ ，现在你需要处理 $q$ 个操作，有以下两种操作：</p>
-<p>$1  val$</p>
+<p>$1$ $val$</p>
 <p>表示你需要构造一个序列，序列中每一个元素 $seq_i$ 小于等于 $a_i$ 且大于 $0$，问所有合法的序列中 $val$ 出现了几次。</p>
-<p>$2  pos val$</p>
+<p>$2$ $pos$ $val$</p>
 <p>表示把 $pos$ 号节点的点权修改为 $val$，点的编号从 $0$ 开始。</p>
-<p>对于每一个询问 $2$ ，请输出操作的结果 $mod p$，$p$ 为质数。</p>
+<p>对于每一个询问 $2$ ，请输出操作的结果 $mod$ $p$，$p$ 为质数。</p>
 <a id="more"></a>
 <h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a><strong>Solution</strong></h3><p>考虑每个节点对答案的贡献：<br>显然总方案数为<br>$$\prod_{i=0}^{n-1} a_i$$<br>显然若第 $i$ 号节点的 $a_i &lt; val$ ，则 $i$ 节点对答案贡献为 $0$<br>若第 $i$ 号节点 $a[i] &gt;= val$ ，则 $i$ 节点对答案的贡献为<br>$$\frac{\prod_{i=0}^{n-1}a_i}{a_i}$$</p>
 <p>考虑一次询问，我们要求的就是：</p>
